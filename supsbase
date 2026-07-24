@@ -1,0 +1,11 @@
+# 1. Nunca confíes en .env local
+# Usa os.getenv con default
+SUPABASE_URL = os.getenv("SUPABASE_URL") # no crash si es None
+
+# 2. Siempre incluye __init__.py
+app/__init__.py
+app/routers/__init__.py
+
+# 3. Testea como Render: docker build
+docker build -t maniqui-test .
+docker run -p 10000:10000 maniqui-test
